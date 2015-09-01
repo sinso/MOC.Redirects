@@ -1,8 +1,11 @@
-resources:
-  methods:
-    MOC_Redirects_Controller_RedirectController: 'method(MOC\Redirects\Controller\RedirectController->redirectAction())'
+privilegeTargets:
+  'TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+    'MOC_Redirects_Controller_RedirectController':
+      matcher: 'method(MOC\Redirects\Controller\RedirectController->redirectAction())'
 
-acls:
-  Everybody:
-    methods:
-      MOC_Redirects_Controller_RedirectController: GRANT
+roles:
+  'TYPO3.Flow:Everybody':
+    privileges:
+      -
+        privilegeTarget: 'MOC_Redirects_Controller_RedirectController'
+        permission: GRANT
